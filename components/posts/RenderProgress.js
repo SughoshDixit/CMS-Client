@@ -1,5 +1,5 @@
 import { Progress } from "antd";
-import CountTo from "react-count-to";
+import CountUp from "react-countup";
 import Link from "next/link";
 
 const RenderProgress = ({ number, name, link = "#" }) => (
@@ -13,7 +13,9 @@ const RenderProgress = ({ number, name, link = "#" }) => (
           "100%": "#111",
         }}
         percent={100}
-        format={() => <CountTo to={number} speed={number * 100} />}
+        format={() => <CountUp end={number} delay={2} duration={5} 
+        onEnd={() => console.log('Ended! 👏')}
+        onStart={() => console.log('Started! 💨')} speed={number * 100} />}
       />
       <p style={{ marginTop: 18, color: "#666" }}>{name.toUpperCase()}</p>
     </a>
